@@ -6,6 +6,9 @@ import javafx.scene.image.ImageView;
 
 public class Cross {
 
+    public static void getIsCross1() {
+        boolean isCross1;
+    }
 
     public static ImageView getCross1(){
         ImageView cross1 = new ImageView("file:src/main/resources/x.jpg");
@@ -13,6 +16,7 @@ public class Cross {
         cross1.setTranslateY(10);
         cross1.setFitHeight(190);
         cross1.setFitWidth(200);
+        boolean isCross1 = true;
         return cross1;
     }
     public static ImageView getCross2(){

@@ -26,6 +26,7 @@ public class TTT extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+
         Group root = new Group();
 
         Button buttonCross1 = new Button("Field1");
@@ -37,8 +38,12 @@ public class TTT extends Application {
         Button buttonCross7 = new Button("Field7");
         Button buttonCross8 = new Button("Field8");
         Button buttonCross9 = new Button("Field9");
+        Button buttonWinnerCircle = new Button("Circle player won");
+        boolean isCross1;
+        boolean isCross2 = true;
+        boolean isCross3 = true;
 
-        Button buttonCircle1 = new Button("Field1");
+       Button buttonCircle1 = new Button("Field1");
         buttonCircle1.setTranslateX(1100);
         buttonCircle1.setTranslateY(50);
         buttonCircle1.setOnAction(e -> {root.getChildren().add(Circ.getCircle1()); root.getChildren().remove(buttonCircle1); root.getChildren().remove(buttonCross1);});
@@ -119,6 +124,13 @@ public class TTT extends Application {
         buttonCross9.setTranslateX(20);
         buttonCross9.setTranslateY(290);
         buttonCross9.setOnAction(event -> {root.getChildren().add(Cross.getCross9()); root.getChildren().remove(buttonCircle9); root.getChildren().remove(buttonCross9);});
+
+        buttonWinnerCircle.setTranslateX(100);
+        buttonWinnerCircle.setTranslateY(500);
+
+
+
+
 
         List<Rectangle> lines = new ArrayList<>();
 

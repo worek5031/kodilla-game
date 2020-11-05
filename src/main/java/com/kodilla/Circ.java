@@ -4,7 +4,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+
 public class Circ {
+
     public static Circle getCircle1() {
         Circle circle1 = new Circle(90);
         circle1.setTranslateX(390);
