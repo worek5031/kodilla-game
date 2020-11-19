@@ -26,7 +26,6 @@ public class TTT extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-
         Group root = new Group();
 
         Button buttonCross1 = new Button("Field1");
@@ -39,14 +38,12 @@ public class TTT extends Application {
         Button buttonCross8 = new Button("Field8");
         Button buttonCross9 = new Button("Field9");
         Button buttonWinnerCircle = new Button("Circle player won");
-        boolean isCross1;
-        boolean isCross2 = true;
-        boolean isCross3 = true;
+
 
        Button buttonCircle1 = new Button("Field1");
         buttonCircle1.setTranslateX(1100);
         buttonCircle1.setTranslateY(50);
-        buttonCircle1.setOnAction(e -> {root.getChildren().add(Circ.getCircle1()); root.getChildren().remove(buttonCircle1); root.getChildren().remove(buttonCross1);});
+        buttonCircle1.setOnAction(e -> {buttonCircle1.isPressed(); root.getChildren().add(Circ.getCircle1()); root.getChildren().remove(buttonCircle1); root.getChildren().remove(buttonCross1);});
 
         Button buttonCircle2 = new Button("Field2");
         buttonCircle2.setTranslateX(1100);
@@ -62,6 +59,8 @@ public class TTT extends Application {
         buttonCircle4.setTranslateX(1100);
         buttonCircle4.setTranslateY(140);
         buttonCircle4.setOnAction(event -> {root.getChildren().add(Circ.getCircle4()); root.getChildren().remove(buttonCircle4); root.getChildren().remove(buttonCross4);});
+
+
 
         Button buttonCircle5 = new Button("Field5");
         buttonCircle5.setTranslateX(1100);
@@ -125,11 +124,9 @@ public class TTT extends Application {
         buttonCross9.setTranslateY(290);
         buttonCross9.setOnAction(event -> {root.getChildren().add(Cross.getCross9()); root.getChildren().remove(buttonCircle9); root.getChildren().remove(buttonCross9);});
 
+
         buttonWinnerCircle.setTranslateX(100);
         buttonWinnerCircle.setTranslateY(500);
-
-
-
 
 
         List<Rectangle> lines = new ArrayList<>();
@@ -139,6 +136,8 @@ public class TTT extends Application {
         lines.add(getLines(300, 200, 600, 10));
         lines.add(getLines(300, 400, 600, 10));
 
+
+
         root.getChildren().addAll(lines);
         root.getChildren().add(Buttons.getTitleButtonCircle());
         root.getChildren().add(Buttons.getTitleButtonCross());
@@ -146,7 +145,12 @@ public class TTT extends Application {
         root.getChildren().addAll(buttonCross1, buttonCross2, buttonCross3, buttonCross4, buttonCross5, buttonCross6, buttonCross7, buttonCross8, buttonCross9);
         root.getChildren().addAll(Fields.getField1(), Fields.getField2(), Fields.getField3(), Fields.getField4(), Fields.getField5(), Fields.getField6(), Fields.getField7(), Fields.getField8(), Fields.getField9());
 
-        //root.getChildren().addAll(Cross.getCross3(), Cross.getCross6(), Cross.getCross9(), Cross.getCross8(), Cross.getCross7(), Cross.getCross4(), Cross.getCross1(), Cross.getCross2(), Cross.getCross5());
+        if(buttonCircle1.isPressed()) {
+         root.getChildren().add(buttonWinnerCircle);
+        }
+
+
+     //root.getChildren().addAll(Cross.getCross3(), Cross.getCross6(), Cross.getCross9(), Cross.getCross8(), Cross.getCross7(), Cross.getCross4(), Cross.getCross1(), Cross.getCross2(), Cross.getCross5());
         //root.getChildren().addAll(Circ.getCircle1(), Circ.getCircle2(), Circ.getCircle3(), Circ.getCircle4(), Circ.getCircle5(), Circ.getCircle6(), Circ.getCircle7(), Circ.getCircle8(), Circ.getCircle9());
 
         Scene scene = new Scene(root, 1200, 600,Color.WHITE);
